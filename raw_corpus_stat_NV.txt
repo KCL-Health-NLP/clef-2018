@@ -1,0 +1,49 @@
+--- FR raw dataset ---
+training: 65843 docs
+dev: 27850 docs
+test: 31682 docs
+
+training: avg number of codes per doc (including 'no code'): 4.025591179016752
+dev: avg number of codes per doc (including 'no code'): 3.9740394973070017
+test: avg number of codes per doc (including 'no code'): 4.164004797676914
+
+unique codes in training: 3302
+unique codes in dev: 2407
+unique codes in test: 2579
+
+unique unseen codes in dev: 229
+unique unseen codes in test: 351
+
+dev: avg number of unseen codes per doc: 1.043010752688172
+test: avg number of unseen codes per doc: 1.0337387210670852
+
+
+--- IT raw dataset ---
+training: 14501 docs
+
+training: avg number of codes per doc: 4.139507620164126
+
+unique codes in training: 1442
+
+
+
+--- scripts ---
+FOLDER: T:\Natalia Viani\clef2018\scripts
+
+read_data_brutes_FR.py (run on training, dev, test):
+- read Brutes CSV file
+- save distinct doc ids in external pickle
+
+read_data_calculees_FR.py (run on training):
+- read Calculees CSV file and check if documents are the same listed in the Brutes CSV file (remove additional lines)
+- count lines with NO ICD code (optional)
+- find unique ICD codes and save them in external pickle
+- count distinct ICD codes (including the "no code" label) per document
+- compute average number of distinct ICD codes per document
+
+count_unseen_codes_FR.py (run on dev, test):
+- read Calculees CSV file and check if documents are the same listed in the Brutes CSV file (remove additional lines)
+- count distinct ICD codes (including the "no code" label) per document
+- compute average number of distinct ICD codes per document
+- count unique unseen codes
+- compute average number of distinct unseen ICD codes per document
