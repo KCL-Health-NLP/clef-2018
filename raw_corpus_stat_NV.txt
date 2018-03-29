@@ -26,6 +26,58 @@ training: avg number of codes per doc: 4.139507620164126
 unique codes in training: 1442
 
 
+--- Internal dataset division ---
+IT: DOC division in 33%, 33%, 33% (use random function and check if statistics are still harmonized)
+FR: count DOC per year, and take either 2 year with 5K each, or 1 year with 10K (then divide by two)
+
+### IT raw data ###
+
+training: 4835 docs
+dev: 4833 docs
+test: 4833 docs
+
+training  - avg number of codes per doc (including 'no code'): 4.11664943123061
+dev  - avg number of codes per doc (including 'no code'): 4.1578729567556385
+test  - avg number of codes per doc (including 'no code'): 4.144009931719429
+
+unique codes in training: 966
+unique codes in dev: 972
+unique codes in test: 1013
+
+unseen codes in dev: 274
+unseen codes in test: 308
+
+dev: avg number of unseen codes per doc: 1.1282798833819243
+test: avg number of unseen codes per doc: 1.138586956521739
+
+### FR raw data ###
+
+training (2006,2007,2008,2011,2012): 56544
+dev (half 2009): 4649
+test (half 2009): 4650
+
+   YearCoded  counts
+0       2006       3
+1       2007    1370
+2       2008    4603
+3       2009    9299
+4       2011   24146
+5       2012   26422
+
+training  - avg number of codes per doc (including 'no code'): 4.027483022071308
+dev   - avg number of codes per doc (including 'no code'): 4.00408690040869
+test  - avg number of codes per doc (including 'no code'): 4.024086021505377
+
+unique codes in training: 3116
+unique codes in dev: 1450
+unique codes in test: 1457
+
+unseen codes in dev: 89
+unseen codes in test: 105
+
+dev: avg number of unseen codes per doc: 1.0303030303030303
+test: avg number of unseen codes per doc: 1.0442477876106195
+
 
 --- scripts ---
 FOLDER: T:\Natalia Viani\clef2018\scripts
@@ -47,3 +99,9 @@ count_unseen_codes_FR.py (run on dev, test):
 - compute average number of distinct ICD codes per document
 - count unique unseen codes
 - compute average number of distinct unseen ICD codes per document
+
+split_data_calculees_FR.py (run on training):
+- read Calculees CSV file
+- search for year with around 10K documents
+- split these documents in 50% and 50% to create dev/test
+- prepare output pickle with: DocID, SetName, YearCoded
