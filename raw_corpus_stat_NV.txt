@@ -1,82 +1,117 @@
+###############################
+#### original raw datsets #####
+###############################
+
 --- FR raw dataset ---
-training: 65843 docs
-dev: 27850 docs
-test: 31682 docs
+1) number of documents
+training: 65843
+dev: 27850
+test: 31682
 
-training: avg number of codes per doc (including 'no code'): 4.025591179016752
-dev: avg number of codes per doc (including 'no code'): 3.9740394973070017
-test: avg number of codes per doc (including 'no code'): 4.164004797676914
+2) avg number of codes per doc (including 'no code')
+training: 4.025591179016752
+dev: 3.9740394973070017
+test: 4.164004797676914
 
-unique codes in training: 3302
-unique codes in dev: 2407
-unique codes in test: 2579
+3) unique ICD10 codes
+training: 3302
+dev: 2407
+test: 2579
 
-unique unseen codes in dev: 229
-unique unseen codes in test: 351
+4) unique unseen codes
+dev: 229
+test: 351
 
-dev: avg number of unseen codes per doc: 1.043010752688172
-test: avg number of unseen codes per doc: 1.0337387210670852
+5) avg number of unseen codes per doc
+dev: 1.043010752688172
+test: 1.0337387210670852
+
+6) lines per doc
+training set:
+	mean   2.964674
+	std    1.204153
+	min    1.000000
+	25%    2.000000
+	50%    3.000000
+	75%    4.000000
+	max    6.000000
 
 
 --- IT raw dataset ---
-training: 14501 docs
+1) number of documents
+training: 14501
 
-training: avg number of codes per doc: 4.139507620164126
+2) avg number of codes per doc
+training: 4.139507620164126
 
-unique codes in training: 1442
+3) unique ICD10 codes
+training: 1442
+
+6) lines per doc
+training set:
+mean     3.435901
+std      1.027205
+min      1.000000
+25%      3.000000
+50%      3.000000
+75%      4.000000
+max      6.000000
 
 
---- Internal dataset division ---
+####################################
+#### internal dataset division #####
+####################################
+
 IT: DOC division in 33%, 33%, 33% (use random function and check if statistics are still harmonized)
-FR: count DOC per year, and take either 2 year with 5K each, or 1 year with 10K (then divide by two)
+FR: count DOC per year, and take either 2 years with 5K each, or 1 year with 10K (then divide by two)
 
-### IT raw data ###
-
-training: 4835 docs
-dev: 4833 docs
-test: 4833 docs
-
-training  - avg number of codes per doc (including 'no code'): 4.11664943123061
-dev  - avg number of codes per doc (including 'no code'): 4.1578729567556385
-test  - avg number of codes per doc (including 'no code'): 4.144009931719429
-
-unique codes in training: 966
-unique codes in dev: 972
-unique codes in test: 1013
-
-unseen codes in dev: 274
-unseen codes in test: 308
-
-dev: avg number of unseen codes per doc: 1.1282798833819243
-test: avg number of unseen codes per doc: 1.138586956521739
-
-### FR raw data ###
-
+--- FR raw dataset ---
+1) number of documents
 training (2006,2007,2008,2011,2012): 56544
 dev (half 2009): 4649
 test (half 2009): 4650
 
-   YearCoded  counts
-0       2006       3
-1       2007    1370
-2       2008    4603
-3       2009    9299
-4       2011   24146
-5       2012   26422
+2) avg number of codes per doc (including 'no code')
+training: 4.027483022071308
+dev: 4.00408690040869
+test: 4.024086021505377
 
-training  - avg number of codes per doc (including 'no code'): 4.027483022071308
-dev   - avg number of codes per doc (including 'no code'): 4.00408690040869
-test  - avg number of codes per doc (including 'no code'): 4.024086021505377
+3) unique ICD10 codes
+training: 3116
+dev: 1450
+test: 1457
 
-unique codes in training: 3116
-unique codes in dev: 1450
-unique codes in test: 1457
+4) unique unseen codes
+dev: 89
+test: 105
 
-unseen codes in dev: 89
-unseen codes in test: 105
+5) avg number of unseen codes per doc
+dev: 1.0303030303030303
+test: 1.0442477876106195
 
-dev: avg number of unseen codes per doc: 1.0303030303030303
-test: avg number of unseen codes per doc: 1.0442477876106195
+--- IT raw dataset ---
+1) number of documents
+training: 4835
+dev: 4833
+test: 4833
+
+2) avg number of codes per doc
+training: 4.11664943123061
+dev: 4.1578729567556385
+test: 4.144009931719429
+
+3) unique ICD10 codes
+training: 966
+dev: 972
+test: 1013
+
+4) unique unseen codes
+dev: 274
+test: 308
+
+5) avg number of unseen codes per doc
+dev: 1.1282798833819243
+test: 1.138586956521739
 
 
 --- scripts ---
