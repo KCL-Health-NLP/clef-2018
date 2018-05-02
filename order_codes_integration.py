@@ -29,16 +29,13 @@ def order_line(dic, icd_codes):
     			d2[dic[cod]]=cod
     		else:
     			unseen.append(cod)
-    #add unseen codes
-    last_pos =  len(dic)
-    for cod in unseen:   
-        d2[last_pos]=cod
-        last_pos = last_pos + 1
     #create ordered list
     d2_ordered = sorted(d2)
     sorted_list = []
     for position in d2_ordered:
-        sorted_list.append(d2[position])        
+        sorted_list.append(d2[position])     
+    for cod in unseen:   
+        sorted_list.append(cod) 
     return sorted_list
     
 dic = create_dic()
